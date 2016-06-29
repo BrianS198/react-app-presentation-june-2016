@@ -12,6 +12,7 @@ const WeaponList = React.createClass({
 
   render: function() {
     const {weaponList, selectedWeapon} = this.props;
+
     return (
       <nav className="weapon-list-container">
         <h2 className='weapon-list-header'>{NAV_TITLE}</h2>
@@ -19,6 +20,7 @@ const WeaponList = React.createClass({
           {
             weaponList.map(weapon => {
               const weaponId = weapon.get('id');
+
               return (
                 <li
                   key={weaponId}
