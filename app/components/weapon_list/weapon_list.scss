@@ -1,0 +1,52 @@
+@import 'theme/vars';
+
+.weapon-list-container {
+  flex-basis: 20%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.weapon-list-header {
+  background: $color-tan-1;
+  color: $color-charcoal;
+  letter-spacing: $theme-space;
+  margin: 0;
+  padding: $theme-space-x-large 0;
+  text-indent: $theme-space-large;
+  text-transform: uppercase;
+}
+
+.weapon-list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  > * {
+    background: $color-tan-2;
+    color: $color-white;
+    cursor: pointer;
+    font-size: $font-medium;
+    flex-basis: 5em;
+    line-height: 5em;
+    position: relative;
+    text-indent: $theme-space-xx-large;
+    text-transform: uppercase;
+    width: 100%;
+
+    &.active:before {
+      background: $color-tan-5;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: $theme-space;
+    }
+
+    &:hover {
+      background: $color-orange;
+    }
+  }
+}
