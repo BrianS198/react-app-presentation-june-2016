@@ -4,10 +4,11 @@
 
 body {
   background: $color-tan-5;
-  font: 16px/100% 'Droid Sans', sans-serif;
+  font: 16px 'Droid Sans', sans-serif;
 }
 
 h1, h2, h3 {
+  color: $color-charcoal;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -22,4 +23,3 @@ h2 {
 .wrap {
   height: 100vh;
 }
-

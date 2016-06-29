@@ -1,5 +1,5 @@
 const React = require('react');
-const {fromJS} = require('immutable');
+const {List, fromJS} = require('immutable');
 const WeaponList = require('components/weapon_list');
 const WeaponCanvas = require('components/weapon_canvas');
 const __styles = require('./weapon_viewer.scss');
@@ -38,7 +38,7 @@ const WeaponViewer = React.createClass({
         <WeaponList
           selectedWeapon='1'
           weaponList={DUMMY_WEAPONS} />
-        <WeaponCanvas />
+        <WeaponCanvas weapons={List()}/>
       </div>
     );
   }

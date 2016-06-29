@@ -1,4 +1,3 @@
-const Classnames = require('classnames');
 const React = require('react');
 const ImmutablePropTypes = require('react-immutable-proptypes');
 const __styles = require('./weapon_list.scss');
