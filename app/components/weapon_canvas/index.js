@@ -17,7 +17,7 @@ const WeaponCanvas = React.createClass({
   },
 
   _renderNoWeapons: function() {
-    return <h2 className="no-weapons-found-message">{NO_WEAPONS_MESSAGE}</h2>;
+    return <h2 className='no-weapons-found-message'>{NO_WEAPONS_MESSAGE}</h2>;
   },
 
   _renderWeapons: function(weapons) {
