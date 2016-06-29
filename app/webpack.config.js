@@ -27,6 +27,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      app_dispatcher: __dirname + '/dispatcher',
       components: __dirname + '/components',
       theme: __dirname + '/theme'
     }
