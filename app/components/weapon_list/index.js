@@ -11,8 +11,7 @@ const WeaponList = React.createClass({
   },
 
   render: function() {
-    var {weaponList, selectedWeapon} = this.props;
-
+    const {weaponList, selectedWeapon} = this.props;
     return (
       <nav className="weapon-list-container">
         <h2 className='weapon-list-header'>{NAV_TITLE}</h2>
