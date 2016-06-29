@@ -2,7 +2,7 @@ const React = require('react');
 const {List, fromJS} = require('immutable');
 const WeaponList = require('components/weapon_list');
 const WeaponCanvas = require('components/weapon_canvas');
-const __styles = require('./weapon_viewer.scss');
+const __styles = require('./root.scss');
 
 const DUMMY_WEAPONS = fromJS([
   {
@@ -31,7 +31,7 @@ const DUMMY_WEAPONS = fromJS([
   }
 ]);
 
-const WeaponViewer = React.createClass({
+const Root = React.createClass({
   render: function() {
     return(
       <div className='app-container'>
@@ -44,4 +44,4 @@ const WeaponViewer = React.createClass({
   }
 });
 
-module.exports = WeaponViewer;
+module.exports = Root;
