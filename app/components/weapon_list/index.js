@@ -2,6 +2,8 @@ const React = require('react');
 const ImmutablePropTypes = require('react-immutable-proptypes');
 const __styles = require('./weapon_list.scss');
 
+const NAV_TITLE = 'Lazer Dragon Brawlers'
+
 const WeaponList = React.createClass({
   propTypes: {
     selectedWeapon: React.PropTypes.string,
@@ -13,7 +15,7 @@ const WeaponList = React.createClass({
 
     return (
       <nav className="weapon-list-container">
-        <h2 className='weapon-list-header'>Weapons</h2>
+        <h2 className='weapon-list-header'>{NAV_TITLE}</h2>
         <ul className='weapon-list'>
           {
             weaponList.map(weapon => {
