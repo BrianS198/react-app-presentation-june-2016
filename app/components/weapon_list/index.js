@@ -1,12 +1,13 @@
 const React = require('react');
 const ImmutablePropTypes = require('react-immutable-proptypes');
+const UiActions = require('actions/ui');
 const __styles = require('./weapon_list.scss');
 
 const NAV_TITLE = 'Lazer Dragon Brawlers'
 
 const WeaponList = React.createClass({
   propTypes: {
-    selectedWeapon: React.PropTypes.string,
+    selectedWeapons: ImmutablePropTypes.list.isRequired,
     weaponList: ImmutablePropTypes.list.isRequired
   },
 
@@ -24,8 +25,8 @@ const WeaponList = React.createClass({
               return (
                 <li
                   key={weaponId}
-                  className={weaponId === selectedWeapon ? 'active' : null}
-                  onClick={() => this._selectWeapon(weaponId)}>
+                  className={this._getWeaponClassName(weaponId)}
+                  onClick={() => this._toggleWeaponSelect(weaponId)}>
                   {weapon.get('name')}
                 </li>
               );
@@ -36,9 +37,16 @@ const WeaponList = React.createClass({
     );
   },
 
-  _selectWeapon: (weaponId) => {
-    // Todo actions
-    console.log(weaponId);
+  _getWeaponClassName: function(weaponId) {
+    if(this.props.selectedWeapons.includes(weaponId)) {
+      return 'active';
+    }
+
+    return null;
+  },
+
+  _toggleWeaponSelect: (weaponId) => {
+    UiActions.toggleSelectedWeapon(weaponId);
   }
 });
 

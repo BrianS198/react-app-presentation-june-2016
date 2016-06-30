@@ -27,8 +27,11 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      actions: __dirname + '/actions',
       app_dispatcher: __dirname + '/dispatcher',
       components: __dirname + '/components',
+      constants: __dirname + '/constants',
+      stores: __dirname + '/stores',
       theme: __dirname + '/theme'
     }
   }
