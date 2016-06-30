@@ -1,5 +1,5 @@
-Test application for devICT June 2016 presentation.
+# Lazer Dragon Brawlers Weapon Viewer
 
-# Setup
+## Setup
 0. Run `npm install`
-1. Run `webpack run start'
+1. Run `npm run start'
