@@ -4,12 +4,10 @@ const __styles = require('./key_value_table.scss');
 
 const KeyValueTable = React.createClass({
   propTypes: {
-    data: ImmutablePropTypes.listOf(
-      ImmutablePropTypes.mapContains({
-        label: React.PropTypes.string,
-        value: React.PropTypes.string
-      }).isRequired
-    ).isRequired
+    data: ImmutablePropTypes.mapContains({
+      label: React.PropTypes.string,
+      value: React.PropTypes.string
+    }).isRequired
   },
 
   render: function() {

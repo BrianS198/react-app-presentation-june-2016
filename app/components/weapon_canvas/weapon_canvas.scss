@@ -8,6 +8,11 @@
 
   > .weapon-details-container {
     flex-grow: 1;
+    flex-basis: 50%;
+
+    &:nth-child(even) {
+      background: $color-blue;
+    }
   }
 }
 

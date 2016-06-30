@@ -41,8 +41,7 @@ const Root = React.createClass({
   },
 
   _getWeaponsBySelectedIds: function() {
-    return this.state.weapons
-      .filter (weapon => this.state.selectedWeaponIds.includes(weapon.get('id')));
+    return this.state.selectedWeaponIds.map(weaponId => this.state.weapons.get(weaponId));
   },
 
   _onChange: function() {
