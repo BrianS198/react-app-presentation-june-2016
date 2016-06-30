@@ -8,26 +8,26 @@ const NAV_TITLE = 'Lazer Dragon Brawlers'
 
 const WeaponList = React.createClass({
   propTypes: {
-    selectedWeapons: ImmutablePropTypes.list.isRequired,
-    weaponList: ImmutablePropTypes.list.isRequired
+    selectedWeaponIds: ImmutablePropTypes.list.isRequired,
+    weapons: ImmutablePropTypes.list.isRequired
   },
 
   render: function() {
-    const {weaponList, selectedWeapon} = this.props;
+    const {weapons, selectedWeapon} = this.props;
 
     return (
       <nav className='weapon-list-container'>
         <h2 className='weapon-list-header'>{NAV_TITLE}</h2>
         <ul className='weapon-list'>
           {
-            weaponList.map(weapon => {
+            weapons.map(weapon => {
               const weaponId = weapon.get('id');
 
               return (
                 <li
                   key={weaponId}
                   className={this._getWeaponClassName(weaponId)}
-                  onClick={() => this._toggleWeaponSelect(weaponId)}>
+                  onClick={() => this._handleWeaponClick(weaponId)}>
                   {weapon.get('name')}
                 </li>
               );
@@ -39,19 +39,19 @@ const WeaponList = React.createClass({
   },
 
   _getWeaponClassName: function(weaponId) {
-    if(this.props.selectedWeapons.includes(weaponId)) {
+    if(this.props.selectedWeaponIds.includes(weaponId)) {
       return 'active';
     }
 
-    if(this.props.selectedWeapons.size === SELECTED_SIZE_LIMIT) {
+    if(this.props.selectedWeaponIds.size === SELECTED_SIZE_LIMIT) {
       return 'disabled';
     }
 
     return null;
   },
 
-  _toggleWeaponSelect: (weaponId) => {
-    UiActions.toggleSelectedWeapon(weaponId);
+  _handleWeaponClick: (weaponId) => {
+    UiActions.toggleSelectedWeaponById(weaponId);
   }
 });
 

@@ -31,8 +31,10 @@ module.exports = {
       app_dispatcher: __dirname + '/dispatcher',
       components: __dirname + '/components',
       constants: __dirname + '/constants',
+      fixtures: __dirname + '/fixtures',
       stores: __dirname + '/stores',
-      theme: __dirname + '/theme'
+      theme: __dirname + '/theme',
+      utils: __dirname + '/utils'
     }
   }
 }

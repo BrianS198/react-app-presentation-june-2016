@@ -1,40 +1,15 @@
 const React = require('react');
-const {List, fromJS} = require('immutable');
 const UiStore = require('stores/ui');
+const WeaponsActions = require('actions/weapons');
+const WeaponsStore = require('stores/weapons');
 const WeaponList = require('components/weapon_list');
 const WeaponCanvas = require('components/weapon_canvas');
 const __styles = require('./root.scss');
 
-const DUMMY_WEAPONS = fromJS([
-  {
-    id: '0',
-    name: 'The Destroyer'
-  },
-  {
-    id: '1',
-    name: 'Trump\'s Hair Dryer'
-  },
-  {
-    id: '2',
-    name: 'Cancer Stick'
-  },
-  {
-    id: '3',
-    name: 'Family Man'
-  },
-  {
-    id: '5',
-    name: 'Skeletor'
-  },
-  {
-    id: '9',
-    name: 'Leftovers'
-  }
-]);
-
 function getStoreValues() {
   return {
-    selectedWeapons: UiStore.getSelectedWeapons()
+    selectedWeaponIds: UiStore.getSelectedWeaponIds(),
+    weapons: WeaponsStore.getWeapons()
   };
 }
 
@@ -45,21 +20,29 @@ const Root = React.createClass({
 
   componentDidMount: function() {
     UiStore.addChangeListener(this._onChange);
+    WeaponsStore.addChangeListener(this._onChange);
+    WeaponsActions.fetchWeapons();
   },
 
   componentWillUnmount: function() {
     UiStore.removeChangeListener(this._onChange);
+    WeaponsStore.removeChangeListener(this._onChange);
   },
 
   render: function() {
     return(
       <div className='app-container'>
         <WeaponList
-          selectedWeapons={this.state.selectedWeapons}
-          weaponList={DUMMY_WEAPONS} />
-        <WeaponCanvas weapons={List()}/>
+          selectedWeaponIds={this.state.selectedWeaponIds}
+          weapons={this.state.weapons} />
+        <WeaponCanvas weapons={this._getWeaponsBySelectedIds()}/>
       </div>
     );
+  },
+
+  _getWeaponsBySelectedIds: function() {
+    return this.state.weapons
+      .filter (weapon => this.state.selectedWeaponIds.includes(weapon.get('id')));
   },
 
   _onChange: function() {

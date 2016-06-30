@@ -1,29 +1,28 @@
 const AppDispatcher = require('app_dispatcher');
 const EventEmitter = require('events').EventEmitter;
-
-const {List} = require('immutable');
+const Immutable = require('immutable');
 const {ACTION_TOGGLE_SELECTED_WEAPON, SELECTED_SIZE_LIMIT} = require('constants/ui');
 
 const CHANGE_EVENT = 'change';
 const ACTION_MAP = {};
-ACTION_MAP[ACTION_TOGGLE_SELECTED_WEAPON] = 'toggleSelectedWeapon';
+ACTION_MAP[ACTION_TOGGLE_SELECTED_WEAPON] = 'toggleSelectedWeaponById';
 
-let selectedWeapons = List();
+let selectedWeaponIds = Immutable.List();
 
-function addWeaponToSelectedWeapons(weaponId) {
-  selectedWeapons = selectedWeapons.push(weaponId);
+function selectWeaponById(weaponId) {
+  selectedWeaponIds = selectedWeaponIds.push(weaponId);
 }
 
-function removeWeaponFromSelectedWeapons(weaponId) {
-  selectedWeapons = selectedWeapons.filter(selectedWeaponId => {
+function deselectWeaponById(weaponId) {
+  selectedWeaponIds = selectedWeaponIds.filter(selectedWeaponId => {
     return selectedWeaponId !== weaponId;
   });
 }
 
 const UiStore = Object.assign({}, EventEmitter.prototype, {
 
-  getSelectedWeapons: function() {
-    return selectedWeapons;
+  getSelectedWeaponIds: function() {
+    return selectedWeaponIds;
   },
 
   emitChange: function() {
@@ -40,15 +39,15 @@ const UiStore = Object.assign({}, EventEmitter.prototype, {
 });
 
 const ActionHandlers = {
-  toggleSelectedWeapon: function({weaponId}) {
-    if (selectedWeapons.includes(weaponId)) {
-      removeWeaponFromSelectedWeapons(weaponId);
+  toggleSelectedWeaponById: function({weaponId}) {
+    if (selectedWeaponIds.includes(weaponId)) {
+      deselectWeaponById(weaponId);
       return UiStore.emitChange();
     }
 
-    if (selectedWeapons.size === SELECTED_SIZE_LIMIT) return;
+    if (selectedWeaponIds.size === SELECTED_SIZE_LIMIT) return;
 
-    addWeaponToSelectedWeapons(weaponId);
+    selectWeaponById(weaponId);
     UiStore.emitChange();
   }
 }
@@ -56,6 +55,9 @@ const ActionHandlers = {
 
 AppDispatcher.register(action => {
   const handlerMethod = ACTION_MAP[action.actionType];
+
+  if (!ActionHandlers[handlerMethod]) return;
+
   ActionHandlers[handlerMethod](action);
 });
 

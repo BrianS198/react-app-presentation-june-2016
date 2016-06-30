@@ -1,5 +1,6 @@
 const React = require('react');
 const ImmutablePropTypes = require('react-immutable-proptypes');
+const WeaponDetails = require('components/weapon_details');
 const __styles = require('./weapon_canvas.scss');
 
 const NO_WEAPONS_MESSAGE = 'No weapons added yet. Click on a weapon to view its details.'
@@ -21,7 +22,7 @@ const WeaponCanvas = React.createClass({
   },
 
   _renderWeapons: function(weapons) {
-    return weapons.map(weapon => <WeaponDetails {...weapon} />);
+    return weapons.map(weapon => <WeaponDetails key={weapon.get('id')} weapon={weapon} />);
   }
 
 });

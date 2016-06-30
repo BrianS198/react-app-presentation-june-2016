@@ -5,6 +5,10 @@
   display: flex;
   position: relative;
   flex-basis: 80%;
+
+  > .weapon-details-container {
+    flex-grow: 1;
+  }
 }
 
 .no-weapons-found-message {
