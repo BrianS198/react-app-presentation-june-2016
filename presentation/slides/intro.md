@@ -7,6 +7,10 @@
 ## I work at RMS.
 
 ---
+## Follow Along:
+[https://github.com/BrianS198/react-app-presentation-june-2016](https://github.com/BrianS198/react-app-presentation-june-2016)
+
+---
 ### What this presentation isn't:
 * A webpack tutorial <!-- .element: class="fragment" data-fragment-index="1" -->
 * A comparison between React and other frameworks <!-- .element: class="fragment" data-fragment-index="2" -->
