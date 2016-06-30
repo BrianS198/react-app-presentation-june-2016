@@ -4,12 +4,16 @@ $header-image-height: $theme-space * 15;
 
 .weapon-details-container {
   background: $color-orange;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
   .header-image {
     background-position-y: 10%;
     background-repeat: no-repeat;
     background-size: cover;
     height: $header-image-height;
+    flex-basis: 30%;
     transition: background-position-y $animation-time;
     width: 100%;
 
@@ -21,6 +25,8 @@ $header-image-height: $theme-space * 15;
   }
 
   .content {
+    flex-basis: 70%;
+    overflow: auto;
     padding: $theme-space-large;
   }
 
