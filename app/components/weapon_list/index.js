@@ -1,6 +1,7 @@
 const React = require('react');
 const ImmutablePropTypes = require('react-immutable-proptypes');
 const UiActions = require('actions/ui');
+const {SELECTED_SIZE_LIMIT} = require('constants/ui');
 const __styles = require('./weapon_list.scss');
 
 const NAV_TITLE = 'Lazer Dragon Brawlers'
@@ -40,6 +41,10 @@ const WeaponList = React.createClass({
   _getWeaponClassName: function(weaponId) {
     if(this.props.selectedWeapons.includes(weaponId)) {
       return 'active';
+    }
+
+    if(this.props.selectedWeapons.size === SELECTED_SIZE_LIMIT) {
+      return 'disabled';
     }
 
     return null;

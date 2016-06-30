@@ -35,6 +35,11 @@
     text-transform: uppercase;
     width: 100%;
 
+    &:hover {
+      background: $color-orange;
+      color: $color-white;
+    }
+
     &.active:before {
       background: $color-tan-5;
       content: '';
@@ -44,9 +49,13 @@
       width: $theme-space-small;
     }
 
-    &:hover {
-      background: $color-orange;
+    &.disabled {
       color: $color-white;
+      cursor: default;
+
+      &:hover {
+        background: $color-tan-2;
+      }
     }
   }
 }

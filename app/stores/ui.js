@@ -1,5 +1,6 @@
 const AppDispatcher = require('app_dispatcher');
 const EventEmitter = require('events').EventEmitter;
+
 const {List} = require('immutable');
 const {ACTION_TOGGLE_SELECTED_WEAPON, SELECTED_SIZE_LIMIT} = require('constants/ui');
 
