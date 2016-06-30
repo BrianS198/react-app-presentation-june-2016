@@ -1,3 +1,25 @@
+@import 'theme/vars';
+
 .key-value-table {
   display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+
+    > * {
+      padding: $theme-space;
+    }
+
+    .label {
+      flex-basis: 30%;
+      background: $color-tan-3;
+    }
+
+    .value {
+      flex-basis: 70%;
+      background: $color-tan-5;
+      color: $color-white;
+    }
+  }
 }

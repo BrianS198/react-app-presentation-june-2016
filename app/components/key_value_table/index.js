@@ -12,7 +12,7 @@ const KeyValueTable = React.createClass({
 
   render: function() {
     return (
-      <div class='key-value-table'>
+      <div className='key-value-table'>
         {this._renderRows()}
       </div>
     );
@@ -20,10 +20,12 @@ const KeyValueTable = React.createClass({
 
   _renderRows: function() {
     return this.props.data.map(item => {
-      return ([
-        <div class='column-label'>{item.get('label')}</div>,
-        <div class='column-value'>{item.get('value')}</div>
-      ]);
+      return (
+        <div className='row'>
+          <div className='label'>{item.get('label')}</div>
+          <div className='value'>{item.get('value')}</div>
+        </div>
+      );
     }).toArray();
   }
 });

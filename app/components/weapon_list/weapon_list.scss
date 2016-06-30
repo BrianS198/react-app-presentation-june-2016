@@ -34,7 +34,7 @@
     padding-left: $theme-space-large;
     position: relative;
     text-transform: uppercase;
-    width: calc(100% - #{$theme-space-large});
+    width: 100%;
 
     &:hover {
       background: $color-orange;

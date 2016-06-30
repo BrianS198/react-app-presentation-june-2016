@@ -6,7 +6,7 @@ $header-image-height: $theme-space * 15;
   background: $color-orange;
 
   .header-image {
-    background-position-y: 20%;
+    background-position-y: 10%;
     background-repeat: no-repeat;
     background-size: cover;
     height: $header-image-height;
@@ -15,7 +15,7 @@ $header-image-height: $theme-space * 15;
 
     &:hover {
       cursor: pointer;
-      background-position-y: 65%;
+      background-position-y: 50%;
       transition: background-position-y $animation-time;
     }
   }
@@ -30,5 +30,9 @@ $header-image-height: $theme-space * 15;
 
   .subtitle {
     margin: $theme-space;
+  }
+
+  .key-value-table {
+    margin-bottom: $theme-space;
   }
 }
