@@ -1,0 +1,29 @@
+@import 'theme/vars';
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Droid+Sans);
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: $color-tan-5;
+  font: 16px 'Droid Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  color: $color-white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+.wrap {
+  height: 100vh;
+}

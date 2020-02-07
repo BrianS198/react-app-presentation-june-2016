@@ -1,0 +1,5 @@
+/node_modules/
+/dist/*
+!/dist/images/
+!/dist/index.html
+npm-debug.log

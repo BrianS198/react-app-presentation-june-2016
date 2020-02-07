@@ -1,0 +1,25 @@
+@import 'theme/vars';
+
+.weapon-canvas {
+  background: $color-tan-4;
+  display: flex;
+  position: relative;
+  flex-basis: 80%;
+
+  > .weapon-details-container {
+    flex-grow: 1;
+    flex-basis: 50%;
+
+    &:nth-child(even) {
+      background: $color-blue;
+    }
+  }
+}
+
+.no-weapons-found-message {
+  color: $color-white;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
